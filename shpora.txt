@@ -8,3 +8,11 @@ git commit -m 'comment' -
 
 git pull
 git push
+
+
+## BRANCHES
+	
+	git checkout -b {name} - создать ветку
+	git checkout {name} - перейти в ветку
+	
+	только после приступаешь к разработке, и делаешь комиты и пуши
