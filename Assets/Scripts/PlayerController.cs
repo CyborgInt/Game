@@ -29,20 +29,25 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
+
+        if (moveZ < 0)  // при ходьбе назад блокаем бег
+            moveSpeed = walkSpeed;
+        print(controller.velocity.magnitude);
+
         HandleIsGrounded();
         HandleJumping();
         HandleGravity();
 
-        HandleRunning();
-        HandleMovement();
+        HandleRunning(moveX, moveZ);
+
+        HandleMovement(moveX, moveZ);
         HandleAnimations();
     }
 
-    private void HandleMovement()
+    private void HandleMovement(float moveX, float moveZ)
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveZ = Input.GetAxisRaw("Vertical");  
-
         moveDirection = new Vector3(moveX, 0, moveZ);
         moveDirection = moveDirection.normalized;
         moveDirection = transform.TransformDirection(moveDirection);
@@ -50,12 +55,13 @@ public class PlayerController : MonoBehaviour
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 
-    private void HandleRunning()
+    private void HandleRunning(float moveX, float moveZ)
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift))   // перегнать ось икс в бул        или  ввести переменную реверс спид
         {
             moveSpeed = runSpeed;
         }
+
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
             moveSpeed = walkSpeed;
