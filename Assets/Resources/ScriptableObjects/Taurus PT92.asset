@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe0a87f7cc155d4ca82fc6dbebd7f1c, type: 3}
+  m_Name: Taurus PT92
+  m_EditorClassIdentifier: 
+  name: Taurus PT92
+  description: Taurus PT92
+  icon: {fileID: 21300000, guid: 2f298154a8eb2b5409cdc60beda0b139, type: 3}
+  prefab: {fileID: 3970031485923206291, guid: 1f84dad4180b9b641952c4dea367848e, type: 3}
+  muzzleFlashParticles: {fileID: 5953708270164693387, guid: 6f35b59c99802cc4a9139992811b345f, type: 3}
+  magazineSize: 12
+  storedAmmo: 72
+  fireRate: 0.3
+  range: 20
+  weaponType: 1
+  weaponStyle: 1

@@ -1,0 +1,10 @@
+ПКМ
+git bash here:
+
+что-то создал
+git status - проверил
+git add <file name> - добавил файлы ( . - добавить все файлы)
+git commit -m 'comment' - 
+
+git pull
+git push

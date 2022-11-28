@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe0a87f7cc155d4ca82fc6dbebd7f1c, type: 3}
+  m_Name: m24
+  m_EditorClassIdentifier: 
+  name: m24
+  description: m24
+  icon: {fileID: 21300000, guid: bf35e18adb09acb44b100394ddd955b3, type: 3}
+  prefab: {fileID: 218611686216509521, guid: a1e169b493f33d742ac975b5958ad778, type: 3}
+  muzzleFlashParticles: {fileID: 6580532353298625088, guid: 3819c900556249a4ea1983786e1406f6, type: 3}
+  magazineSize: 5
+  storedAmmo: 30
+  fireRate: 1.5
+  range: 100
+  weaponType: 5
+  weaponStyle: 0
