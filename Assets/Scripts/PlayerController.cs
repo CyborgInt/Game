@@ -29,20 +29,25 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
+
+        if (moveZ < 0)  // при ходьбе назад блокаем бег
+            moveSpeed = walkSpeed;
+        print(controller.velocity.magnitude);
+
         HandleIsGrounded();
         HandleJumping();
         HandleGravity();
 
-        HandleRunning();
-        HandleMovement();
+        HandleRunning(moveX, moveZ);
+
+        HandleMovement(moveX, moveZ);
         HandleAnimations();
     }
 
-    private void HandleMovement()
+    private void HandleMovement(float moveX, float moveZ)
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveZ = Input.GetAxisRaw("Vertical");  
-
         moveDirection = new Vector3(moveX, 0, moveZ);
         moveDirection = moveDirection.normalized;
         moveDirection = transform.TransformDirection(moveDirection);
@@ -50,12 +55,13 @@ public class PlayerController : MonoBehaviour
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 
-    private void HandleRunning()
+    private void HandleRunning(float moveX, float moveZ)
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift))   // перегнать ось икс в бул        или  ввести переменную реверс спид
         {
             moveSpeed = runSpeed;
         }
+
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
             moveSpeed = walkSpeed;
@@ -64,11 +70,11 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAnimations()
     {
-        if(moveDirection == Vector3.zero)
+        if (moveDirection == Vector3.zero)
         {
             anim.SetFloat("Speed", 0f, 0.2f, Time.deltaTime);
         }
-        else if(moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
+        else if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
         {
             anim.SetFloat("Speed", 0.5f, 0.2f, Time.deltaTime);
         }
