@@ -70,11 +70,11 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAnimations()
     {
-        if(moveDirection == Vector3.zero)
+        if (moveDirection == Vector3.zero)
         {
             anim.SetFloat("Speed", 0f, 0.2f, Time.deltaTime);
         }
-        else if(moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
+        else if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
         {
             anim.SetFloat("Speed", 0.5f, 0.2f, Time.deltaTime);
         }
