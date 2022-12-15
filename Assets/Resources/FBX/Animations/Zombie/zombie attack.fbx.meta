@@ -23,14 +23,13 @@ ModelImporter:
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Zombie|attack' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Spine3' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Pinky1.L' has translation
-      animation that will be discarded.\n\t'Ring1.L' has translation animation that
-      will be discarded.\n\t'Middle1.L' has translation animation that will be discarded.\n\t'Index1.L'
-      has translation animation that will be discarded.\n\t'Pinky1.R' has translation
-      animation that will be discarded.\n\t'Ring1.R' has translation animation that
-      will be discarded.\n\t'Middle1.R' has translation animation that will be discarded.\n\t'Index1.R'
-      has translation animation that will be discarded.\n"
+      to improve retargeting quality.\n\t'Pinky1.L' has translation animation that
+      will be discarded.\n\t'Ring1.L' has translation animation that will be discarded.\n\t'Middle1.L'
+      has translation animation that will be discarded.\n\t'Index1.L' has translation
+      animation that will be discarded.\n\t'Pinky1.R' has translation animation that
+      will be discarded.\n\t'Ring1.R' has translation animation that will be discarded.\n\t'Middle1.R'
+      has translation animation that will be discarded.\n\t'Index1.R' has translation
+      animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
