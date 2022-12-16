@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
 
+    // TODO: Убрать наклон зомби при смене высоты, Убрать бг в прыжке, блокировать стрельбу при беге
+
     private void Start()
     {
         GetReferences();
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
         if (moveZ < 0)  // при ходьбе назад блокаем бег
             moveSpeed = walkSpeed;
-        print(controller.velocity.magnitude);
+        //print(controller.velocity.magnitude);
 
         HandleIsGrounded();
         HandleJumping();

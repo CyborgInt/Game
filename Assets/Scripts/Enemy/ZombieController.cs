@@ -63,6 +63,7 @@ public class ZombieController : MonoBehaviour
         //transform.LookAt(target);
 
         Vector3 direction = target.position - transform.position;
+        direction.y = 0;    // блочим вращение по У
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
         transform.rotation = rotation;
     }
