@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stoppingDistance: 3
-  target: {fileID: 0}
 --- !u!114 &4726321633402264807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +182,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e9cc7984fcf99fc499f70d9263fa92f6, type: 2}
+    - target: {fileID: 5866666021909216657, guid: c3b58561325cfac4d8136bd4ed91ab26, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b58561325cfac4d8136bd4ed91ab26, type: 3}
 --- !u!4 &5052472539271648744 stripped

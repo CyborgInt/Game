@@ -13,7 +13,7 @@ public class ZombieController : MonoBehaviour
     private NavMeshAgent agent = null;
     private Animator anim = null;
     private ZombieStats stats = null;
-    [SerializeField] private Transform target;
+    private Transform target;
 
     private void Start()
     {
@@ -79,5 +79,6 @@ public class ZombieController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
         stats = GetComponent<ZombieStats>();
+        target = PlayerController.instance;
     }
 }

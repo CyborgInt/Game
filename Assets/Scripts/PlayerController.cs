@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // TODO: Убрать бeг в прыжке, блокировать стрельбу при беге
+
+    #region
+
+    public static Transform instance;
+
+    private void Awake()
+    {
+        instance = this.transform;
+    }
+
+    #endregion
+
     [Header("Move Variables")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float walkSpeed;
@@ -21,8 +34,6 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
 
-    // TODO: Убрать наклон зомби при смене высоты, Убрать бг в прыжке, блокировать стрельбу при беге
-
     private void Start()
     {
         GetReferences();
@@ -31,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
 
@@ -120,4 +132,5 @@ public class PlayerController : MonoBehaviour
     {
         moveSpeed = walkSpeed;
     }
+
 }
