@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    /// яйпхор нрбевючыхи гю рнвйх яоюбмю
+    /// бпюцнб, х йнрпнкхпсчыхи бнкмш мюоюдючыху
+
     public enum SpawnState { SPAWNING, WAITING, COUNTING};
 
     // VARIABLES

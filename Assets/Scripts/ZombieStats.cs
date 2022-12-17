@@ -16,17 +16,20 @@ public class ZombieStats : CharacterStats
 
     public void DealDamage(CharacterStats statsToDamage)
     {
+        // опхлемемхе спнмю
         statsToDamage.TakeDamage(damage);
     }
 
     public override void Die()
     {
+        // ялепрэ
         base.Die();
         Destroy(gameObject);
     }
 
     public override void InitVariables()
     {
+        // оепелеммше
         maxHealth = 100;
         SetHealthTo(maxHealth);
         isDead = false;

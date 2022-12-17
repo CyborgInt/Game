@@ -17,6 +17,10 @@ public class PlayerPickup : MonoBehaviour
 
     private void Update()
     {
+        /// лернд бшгшбючыхи ондмърхе нпсфхъ
+        /// я онлныч цемепюжхх ксвю мюопюбкемхъ, нопедекъер назейр мюбедемхъ
+        /// дкъ ецн ондмърхъ, х днаюбкъер ецн б хмбемрюпэ
+
         if(Input.GetKeyDown(KeyCode.E))
         {
             Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));

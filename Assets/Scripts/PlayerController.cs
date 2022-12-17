@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     #region
 
+    /// тсмйжхъ онксвемхъ дюммшу н онгхжхх хцпнйю, дкъ оепедювх б 
+    /// яйпхор сопюбкемхъ бпюцнл
     public static Transform instance;
 
     private void Awake()
@@ -17,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    // оепелеммше дбхфемхъ
     [Header("Move Variables")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float walkSpeed;
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
 
+    // оепелеммшецпюбхрюжхх
     [Header("Gravity")]
     [SerializeField] private float gravity;
     [SerializeField] private float groundDistance;
@@ -42,7 +46,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
+        /// лернд, йюфдши йюдп, онксвюер бундмше дюммше йнмпнккепю(йкюбхьх WASD)
+        /// х бшгшбюер лерндш дбхфемхъ, опшфйю, цпюбхрюжхх, аецю, юмхлюжхх.
+        
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
 
@@ -62,6 +68,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement(float moveX, float moveZ)
     {
+        /// лернд янгдю╗р бейрнп дбхфемхъ х бшонкмъер дбхфемхе он мелс
+        
         moveDirection = new Vector3(moveX, 0, moveZ);
         moveDirection = moveDirection.normalized;
         moveDirection = transform.TransformDirection(moveDirection);
@@ -71,6 +79,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleRunning(float moveX, float moveZ)
     {
+        /// лернд опнбепъер мюфюрхе мю SHIFT, 
+        /// х лемъер хяонкмъелсч яйнпнярэ дбхфемхъ  
+
         if(Input.GetKeyDown(KeyCode.LeftShift))   // ОЕПЕЦМЮРЭ НЯЭ ХЙЯ Б АСК        ХКХ  ББЕЯРХ ОЕПЕЛЕММСЧ ПЕБЕПЯ ЯОХД
         {
             moveSpeed = runSpeed;
@@ -84,6 +95,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAnimations()
     {
+        /// лернд бшгшбючыхи юмхлюжхч бгюбхяхлнярх нр пефхлю 
+        /// оепедбхфемхъ(ярюмдюпр(ярнхр мю лере), ундэаю, аец)
+
         if (moveDirection == Vector3.zero)
         {
             anim.SetFloat("Speed", 0f, 0.2f, Time.deltaTime);
@@ -100,11 +114,15 @@ public class PlayerController : MonoBehaviour
 
     private void HandleIsGrounded()
     {
+        /// лернд опнбепъер йюяюмхе й гелке(опхгелк╗ммнярэ)
+        
         isCharacterGrounded = Physics.CheckSphere(transform.position, groundDistance, groundMask);
     }
 
     private void HandleGravity()
     {
+        /// лернд опхлемъчыхи опхръфемхе й гелке оняке опшфйю
+
         if(isCharacterGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
@@ -116,6 +134,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJumping()
     {
+        /// лернд бшгшбючыхи опшфнй
+
         if(Input.GetKeyDown(KeyCode.Space) && isCharacterGrounded)
         {
             velocity.y += Mathf.Sqrt(jumpForce * -2f * gravity);

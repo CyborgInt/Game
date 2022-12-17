@@ -17,6 +17,8 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Weapon newItem)
     {
+        /// лернд днаюбкъъчыхи нпсфхе б хмбемрюпэ
+
         int newItemIndex = (int)newItem.weaponStyle;
 
         if (weapons[newItemIndex] != null)

@@ -24,6 +24,9 @@ public class EquipmentManager : MonoBehaviour
 
     private void Update()
     {
+        /// б лернде опнбепъеряъ бшгнб пюгмнцн нпсфхъ,
+        /// х бшонкмъчыхи онанвмше лерндш(бшанп, опхлемемхе)
+
         if(Input.GetKeyDown(KeyCode.Alpha1) && currentlyEquippedWeapon != 0)
         {
             UnequipWeapon();

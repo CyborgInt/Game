@@ -10,16 +10,19 @@ public class PlayerHUD : MonoBehaviour
 
     public void UpdateHealth(int currentHealth, int maxHealth)
     {
+        // намнбкемхе бекхвхмш гднпнбэъ
         healthBar.SetValue(currentHealth, maxHealth);
     }
 
     public void UpdateWeaponUI(Weapon newWeapon)
     {
+        // намнбкемхе лндекэйх нпсфхъ
         weaponUI.UpdateInfo(newWeapon.icon, newWeapon.magazineSize, newWeapon.storedAmmo);
     }
 
     public void UpdateWeaponAmmoUI(int currentAmmo, int storedAmmo)
     {
+        // намнбкемхе хйнмйх нпсфхъ б "усд" оюмекх
         weaponUI.UpdateAmmoUI(currentAmmo, storedAmmo);
     }
 }

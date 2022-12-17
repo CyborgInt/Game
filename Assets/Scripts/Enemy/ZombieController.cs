@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class ZombieController : MonoBehaviour
 {
+    /// яйпхор йнмрпнкхпсчыхи онбедемхе опнрхбмхйю
+    /// (юмхлюжхъ, онбнпнр, дбхфемхе)
+
     [SerializeField] private float stoppingDistance = 3;
     private float timeOfLastAttack = 0;
     private bool hasStopped = false;

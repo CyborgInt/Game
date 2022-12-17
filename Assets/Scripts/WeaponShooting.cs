@@ -33,12 +33,12 @@ public class WeaponShooting : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Mouse0))
+        if(Input.GetKey(KeyCode.Mouse0))    // бшярпек
         {
-            Shoot();
+            Shoot();    
         }
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(KeyCode.R))     // оепегюпъдйю
         {
             Reload(manager.currentlyEquippedWeapon);
         }
@@ -46,6 +46,9 @@ public class WeaponShooting : MonoBehaviour
 
     private void RaycastShoot(Weapon currentWeapon)
     {
+        /// тсмйжхъ пеюкхгсчыюъ ксв-рпюейрнпхч й рнвйе, 
+        /// он йнрнпни асдер оепелеыюрэяъ оскъ.
+        
         Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
 
@@ -60,7 +63,10 @@ public class WeaponShooting : MonoBehaviour
     }
 
     private void Shoot()
-    {
+    {   /// лернд бшярпекю, опнбепъер бнглнфмнярэ бшярпекю х бнглнфмнярэ оепегюпъдйх
+        /// оняке онксвюер нпсфхе, гюохяшбюер бпелъ бшярпекю б кнцх, бшгшбюер лерндш
+        /// цемепюжхх рпюейрнпхх х нпсфхъ
+        
         CheckCanShoot(manager.currentlyEquippedWeapon);
 
         if (canShoot && canReload)
@@ -82,6 +88,8 @@ public class WeaponShooting : MonoBehaviour
 
     private void UseAmmo(int slot, int currentAmmoUsed, int currentStoredAmmoUsed)
     {
+        /// лернд дкъ бшанпю нпсфхъ
+        
         //primary
         if (slot == 0)
         {
@@ -117,6 +125,9 @@ public class WeaponShooting : MonoBehaviour
 
     private void AddAmmo(int slot, int currentAmmoAdded, int currentStoredAmmoAdded)
     {
+        /// лернд днаюбкемхъ нпсфхъ б юйрхбмши якнр "хмбемрюпъ"
+        /// оепедю╗р дюммше б "усд"
+        
         //primary
         if (slot == 0)
         {
@@ -136,6 +147,9 @@ public class WeaponShooting : MonoBehaviour
 
     private void Reload(int slot)
     {
+        /// лернд дкъ оепегюпъдйх, опнбепъчыхи е╗ бнглнфмнярэ
+        /// х хяонкмъер оепегюпъдйс дкъ йнмйпермнцн нпсфхъ
+        
         if (canReload)
         {
             //primary
@@ -197,6 +211,9 @@ public class WeaponShooting : MonoBehaviour
 
     private void CheckCanShoot(int slot)
     {
+        /// лернд дкъ опнбепйх бнглнфмнярх бшярпекю
+        /// опнбепъер бшапюммне нпсфхе х бекхвхмс ецн оюрпнмнб
+        
         //primary
         if(slot == 0)
         {
@@ -218,6 +235,8 @@ public class WeaponShooting : MonoBehaviour
 
     public void InitAmmo(int slot, Weapon weapon)
     {
+        /// лернд хмхжхюкхгюжхх нпсфхъ х оюпюлерпнб
+
         //primary
         if (slot == 0)
         {

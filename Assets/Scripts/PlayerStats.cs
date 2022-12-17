@@ -21,12 +21,16 @@ public class PlayerStats : CharacterStats
 
     public override void CheckHealth()
     {
+        /// лернд опнбепйх гднпнбэъ
+        
         base.CheckHealth();
         hud.UpdateHealth(health, maxHealth);
     }
 
     private void Update()
     {
+        /// реярнбши лернд дкъ онксвемхъ спнмю
+
         if(Input.GetKeyDown(KeyCode.T))
         {
             TakeDamage(10);
