@@ -58,8 +58,8 @@ public class WeaponShooting : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
         }
-
-        Instantiate(currentWeapon.muzzleFlashParticles, manager.currentWeaponBarrel);
+        if(inventory.GetItem(manager.currentlyEquippedWeapon).weaponType != WeaponType.Melee)
+            Instantiate(currentWeapon.muzzleFlashParticles, manager.currentWeaponBarrel);
     }
 
     private void Shoot()
@@ -80,6 +80,7 @@ public class WeaponShooting : MonoBehaviour
 
                 RaycastShoot(currentWeapon);
                 UseAmmo((int)currentWeapon.weaponStyle, 1, 0);
+                PlayShootAnimations();
             }
         }
         else
@@ -250,6 +251,12 @@ public class WeaponShooting : MonoBehaviour
             secondaryCurrentAmmo = weapon.magazineSize;
             secondaryCurrentAmmoStorage = weapon.storedAmmo;
         }
+    }
+
+    private void PlayShootAnimations()
+    {
+        anim.SetTrigger("shoot");
+        manager.currentWeaponAnim.SetTrigger("shoot");
     }
 
     private void GetReferences()
