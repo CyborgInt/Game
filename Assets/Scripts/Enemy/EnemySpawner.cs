@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     // REFERENCES
     [SerializeField] private Transform[] spawners;
+    [SerializeField] private List<CharacterStats> enemyList;
 
 
     private void Start()
@@ -31,6 +32,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        if(state == SpawnState.WAITING)
+        {
+            if (!EnemiesAreDead())
+                return;
+            else
+                CompleteWave();
+        }
+
         if (waveCountdown <= 0)
         {
             // spawn enemies
@@ -73,7 +82,41 @@ public class EnemySpawner : MonoBehaviour
         int randomInt = Random.RandomRange(1, spawners.Length);
         //Debug.Log(randomInt);     // проверка точек спавна
         Transform randomSpawner = spawners[randomInt];
-        Instantiate(enemy, randomSpawner.position, randomSpawner.rotation);
 
+        GameObject newEnemy = Instantiate(enemy, randomSpawner.position, randomSpawner.rotation);
+        CharacterStats newEnemyStats = newEnemy.GetComponent<CharacterStats>();
+
+        enemyList.Add(newEnemyStats);
+    }
+
+    private bool EnemiesAreDead()
+    {
+        int i = 0;
+        foreach(CharacterStats enemy in enemyList)
+        {
+            if (enemy.IsDead())
+                i++;
+            else
+                return false;
+        }
+        return true;
+    }
+
+    private void CompleteWave()
+    {
+        Debug.Log("WAVE COMPLETED");
+
+        state = SpawnState.COUNTING;
+        waveCountdown = timeBetweenWaves;
+
+        if(currentWave + 1 > waves.Length - 1)
+        {
+            currentWave = 0;
+            Debug.Log("Complete all the waves");
+        }
+        else
+        {
+            currentWave++;
+        }
     }
 }
