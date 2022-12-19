@@ -25,6 +25,7 @@ public class WeaponShooting : MonoBehaviour
     private EquipmentManager manager;
     private Animator anim;
     private PlayerHUD hud;
+    private PlayerStats stats;
 
     private void Start()
     {
@@ -35,14 +36,27 @@ public class WeaponShooting : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Mouse0))    // ¬€—“–≈À
+        if(!stats.IsDead())
         {
-            Shoot();    
-        }
+            if (Input.GetMouseButtonDown(1))
+            {
+                anim.SetBool("aim", true);
+            }
 
-        if(Input.GetKeyDown(KeyCode.R))     // œ≈–≈«¿–ﬂƒ ¿
-        {
-            Reload(manager.currentlyEquippedWeapon);
+            if (Input.GetMouseButtonUp(1))
+            {
+                anim.SetBool("aim", false);
+            }
+
+            if (Input.GetKey(KeyCode.Mouse0))    // ¬€—“–≈À
+            {
+                Shoot();
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))     // œ≈–≈«¿–ﬂƒ ¿
+            {
+                Reload(manager.currentlyEquippedWeapon);
+            }
         }
     }
 
@@ -280,5 +294,6 @@ public class WeaponShooting : MonoBehaviour
         manager = GetComponent<EquipmentManager>();
         anim = GetComponentInChildren<Animator>();
         hud = GetComponent<PlayerHUD>();
+        stats = GetComponent<PlayerStats>();
     }
 }

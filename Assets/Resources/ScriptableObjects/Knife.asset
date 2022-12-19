@@ -18,8 +18,8 @@ MonoBehaviour:
   prefab: {fileID: 1040527780268143961, guid: c77b19cdf08925d46bc2a946b86a1e69, type: 3}
   muzzleFlashParticles: {fileID: 0}
   damage: 100
-  magazineSize: 0
-  storedAmmo: 0
+  magazineSize: 1
+  storedAmmo: 1
   fireRate: 1
   range: 5
   weaponType: 0

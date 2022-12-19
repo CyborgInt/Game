@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
 
     private Animator anim;
+    private PlayerStats stats;
 
     private void Start()
     {
@@ -74,7 +75,8 @@ public class PlayerController : MonoBehaviour
         moveDirection = moveDirection.normalized;
         moveDirection = transform.TransformDirection(moveDirection);
 
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+        if(!stats.IsDead())
+            controller.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 
     private void HandleRunning(float moveX, float moveZ)
@@ -146,6 +148,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
+        stats = GetComponent<PlayerStats>();
     }
 
     private void InitVariables()

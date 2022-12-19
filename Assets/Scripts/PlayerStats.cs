@@ -6,7 +6,7 @@ public class PlayerStats : CharacterStats
 {
 
     private PlayerHUD hud;
-
+    private UIManager ui;
 
     private void Start()
     {
@@ -17,6 +17,7 @@ public class PlayerStats : CharacterStats
     private void GetReferences()
     {
         hud = GetComponent<PlayerHUD>();
+        ui = GetComponent<UIManager>();
     }
 
     public override void CheckHealth()
@@ -25,6 +26,12 @@ public class PlayerStats : CharacterStats
         
         base.CheckHealth();
         hud.UpdateHealth(health, maxHealth);
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        ui.SetActiveHud(false);
     }
 
     private void Update()

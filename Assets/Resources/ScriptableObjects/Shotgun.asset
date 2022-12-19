@@ -21,6 +21,6 @@ MonoBehaviour:
   magazineSize: 6
   storedAmmo: 36
   fireRate: 1.25
-  range: 5
+  range: 10
   weaponType: 4
   weaponStyle: 0
