@@ -11,12 +11,16 @@ public class ZombieController : MonoBehaviour
     [SerializeField] private float stoppingDistance = 3;
     private float timeOfLastAttack = 0;
     private bool hasStopped = false;
+    private bool seePlayer = false;
 
 
     private NavMeshAgent agent = null;
     private Animator anim = null;
+    private Rigidbody body = null;
     private ZombieStats stats = null;
     private Transform target;
+
+    public GameObject player;
 
     private void Start()
     {
@@ -25,13 +29,20 @@ public class ZombieController : MonoBehaviour
 
     private void Update()
     {
-        MoveToTarget();
+        if (seePlayer) 
+        {
+            Debug.Log(agent.velocity.magnitude);
+            MoveToTarget();
+        }
+        anim.SetFloat("Speed", agent.velocity.magnitude);
+        
     }
 
     private void MoveToTarget()
     {
         agent.SetDestination(target.position);
-        anim.SetFloat("Speed", 1f, 0.3f, Time.deltaTime);
+        //anim.SetFloat("Speed", 1f, 0.3f, Time.deltaTime);
+        //anim.SetFloat("Speed", body.velocity.magnitude);
         RotateToTarget();
 
         float distanceToTarget = Vector3.Distance(target.position, transform.position);
@@ -77,11 +88,33 @@ public class ZombieController : MonoBehaviour
         stats.DealDamage(statsToDamage);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name.Contains("Player"))
+        {
+            seePlayer = true;
+        }
+            
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name.Contains("Player"))
+        {
+            seePlayer = false;
+        }
+            
+    }
+
     private void GetReferences()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
+        body = GetComponent<Rigidbody>();
         stats = GetComponent<ZombieStats>();
         target = PlayerController.instance;
+        player = PlayerController.player;
     }
+
+    
 }

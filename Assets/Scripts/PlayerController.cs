@@ -11,10 +11,12 @@ public class PlayerController : MonoBehaviour
     /// тсмйжхъ онксвемхъ дюммшу н онгхжхх хцпнйю, дкъ оепедювх б 
     /// яйпхор сопюбкемхъ бпюцнл
     public static Transform instance;
+    public static GameObject player;
 
     private void Awake()
     {
         instance = this.transform;
+        player = this.gameObject;
     }
 
     #endregion
