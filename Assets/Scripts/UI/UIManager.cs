@@ -24,9 +24,9 @@ public class UIManager : MonoBehaviour
     {
         if(!stats.IsDead())
         {
-            if (Input.GetKeyDown(KeyCode.P) && !isPaused)
+            if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
                 SetActivePause(true);
-            else if (Input.GetKeyDown(KeyCode.P) && isPaused)
+            else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
                 SetActivePause(false);
         }
     }

@@ -59,7 +59,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.8359375
+      - time: 0.6631579
         functionName: DestroyWeapon
         data: 
         objectReferenceParameter: {instanceID: 0}
